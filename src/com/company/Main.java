@@ -27,61 +27,26 @@ public class Main {
         map.put(TextAttribute.SIZE,24);
         Font font = new Font(map);
 
-        final JTextField jTextField1 = addTextField(frame, font);
+        final JTextField jTextField1 = addTextField(frame, font, 10, 0);
 
-        final JTextField jTextField2 = new JTextField("");
-        jTextField2.setSize(300,50);
-        jTextField2.setLocation(320,0);
-        jTextField2.setFont(font);
-        frame.add(jTextField2);
+        final JTextField jTextField2 = addTextField(frame, font, 320,0);
 
-        final JTextField jTextField3 = new JTextField("");
-        jTextField3.setSize(300,50);
-        jTextField3.setLocation(630,0);
-        jTextField3.setFont(font);
-        frame.add(jTextField3);
+        final JTextField jTextField3 = addTextField(frame, font, 630,0);
 
-        final JTextField jTextField4 = new JTextField("");
-        jTextField4.setSize(300,50);
-        jTextField4.setLocation(940,0);
-        jTextField4.setFont(font);
-        frame.add(jTextField4);
+        final JTextField jTextField4 = addTextField(frame, font, 940,0);
 
-        final JTextField jTextField5 = new JTextField("");
-        jTextField5.setSize(300,50);
-        jTextField5.setLocation(1250,0);
-        jTextField5.setFont(font);
-        frame.add(jTextField5);
+        final JTextField jTextField5 = addTextField(frame, font, 1250,0);
 
-        final JTextField jTextField6 = new JTextField("");
-        jTextField6.setSize(300,50);
-        jTextField6.setLocation(10,60);
-        jTextField6.setFont(font);
-        frame.add(jTextField6);
+        final JTextField jTextField6 = addTextField(frame, font, 10,60);
 
-        final JTextField jTextField7 = new JTextField("");
-        jTextField7.setSize(300,50);
-        jTextField7.setLocation(320,60);
-        jTextField7.setFont(font);
-        frame.add(jTextField7);
+        final JTextField jTextField7 = addTextField(frame, font, 320,60);
 
-        final JTextField jTextField8 = new JTextField("");
-        jTextField8.setSize(300,50);
-        jTextField8.setLocation(630,60);
-        jTextField8.setFont(font);
-        frame.add(jTextField8);
+        final JTextField jTextField8 = addTextField(frame, font, 630,60);
 
-        final JTextField jTextField9 = new JTextField("");
-        jTextField9.setSize(300,50);
-        jTextField9.setLocation(940,60);
-        jTextField9.setFont(font);
-        frame.add(jTextField9);
+        final JTextField jTextField9 = addTextField(frame, font, 940,60);
 
-        final JTextField jTextField10 = new JTextField("");
-        jTextField10.setSize(300,50);
-        jTextField10.setLocation(1250,60);
-        jTextField10.setFont(font);
-        frame.add(jTextField10);
+
+        final JTextField jTextField10 = addTextField(frame, font, 1250,60);
 
         JButton jButton = new JButton("确定");
         jButton.setSize(300,50);
@@ -246,13 +211,13 @@ public class Main {
 //        kjjy();
     }
 
-    private static JTextField addTextField(JFrame frame, Font font) {
-        final JTextField jTextField1 = new JTextField("");
-        jTextField1.setSize(300,50);
-        jTextField1.setLocation(10,0);
-        jTextField1.setFont(font);
-        frame.add(jTextField1);
-        return jTextField1;
+    private static JTextField addTextField(JFrame frame, Font font, int x, int y) {
+        final JTextField jTextField = new JTextField("");
+        jTextField.setSize(300,50);
+        jTextField.setLocation(x, y);
+        jTextField.setFont(font);
+        frame.add(jTextField);
+        return jTextField;
     }
 
     {

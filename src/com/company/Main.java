@@ -1,8 +1,5 @@
 package com.company;
 
-import com.sun.javafx.css.Size;
-
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,9 +8,8 @@ import java.awt.font.TextAttribute;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.CharBuffer;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -64,53 +60,8 @@ public class Main {
         jButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JTextField[] jTextFields;
-                String text = jTextField10.getText();
-                if(text!=null && !text.trim().equals("")){
-                    jTextFields = new JTextField[] {jTextField1,jTextField2,jTextField3,jTextField4,jTextField5,
-                            jTextField6,jTextField7,jTextField8,jTextField9,jTextField10};
-                }
-                else if((text=jTextField9.getText())!=null && !text.trim().equals("")){
-                    jTextFields = new JTextField[] {jTextField1,jTextField2,jTextField3,jTextField4,jTextField5,
-                            jTextField6,jTextField7,jTextField8,jTextField9};
-                }
-                else if((text=jTextField8.getText())!=null && !text.trim().equals("")){
-                    jTextFields = new JTextField[] {jTextField1,jTextField2,jTextField3,jTextField4,jTextField5,
-                            jTextField6,jTextField7,jTextField8};
-                }
-                else if((text=jTextField7.getText())!=null && !text.trim().equals("")){
-                    jTextFields = new JTextField[] {jTextField1,jTextField2,jTextField3,jTextField4,jTextField5,
-                            jTextField6,jTextField7};
-                }
-                else if((text=jTextField6.getText())!=null && !text.trim().equals("")){
-                    jTextFields = new JTextField[] {jTextField1,jTextField2,jTextField3,jTextField4,jTextField5,
-                            jTextField6};
-                }
-                else if((text=jTextField5.getText())!=null && !text.trim().equals("")){
-                    jTextFields = new JTextField[] {jTextField1,jTextField2,jTextField3,jTextField4,jTextField5
-                            };
-                }
-                else if((text=jTextField4.getText())!=null && !text.trim().equals("")){
-                    jTextFields = new JTextField[] {jTextField1,jTextField2,jTextField3,jTextField4};
-                }
-                else if((text=jTextField3.getText())!=null && !text.trim().equals("")){
-                    jTextFields = new JTextField[] {jTextField1,jTextField2,jTextField3};
-                }
-                else if((text=jTextField2.getText())!=null && !text.trim().equals("")){
-                    jTextFields = new JTextField[] {jTextField1,jTextField2};
-                }
-                else if((text=jTextField1.getText())!=null && !text.trim().equals("")){
-                    jTextFields = new JTextField[] {jTextField1};
-                }
-                else{
-                    jTextFields = new JTextField[]{};
-                }
+                String text = getText(jTextField10, jTextField1, jTextField2, jTextField3, jTextField4, jTextField5, jTextField6, jTextField7, jTextField8, jTextField9);
 
-                text = "";
-                for (int i = 0; i < jTextFields.length; i++) {
-                    text += jTextFields[i].getText();
-                    text +="\r\n";
-                }
                 try {
                     FileWriter fileWriter = new FileWriter("in.txt");
                     fileWriter.write(text);
@@ -201,6 +152,16 @@ public class Main {
         frame.setSize(1560,960);
         frame.setVisible(true);
 //        kjjy();
+    }
+
+    private static String getText(JTextField... jTextFields) {
+
+        return Arrays.stream(jTextFields)
+                .map(JTextField::getText)
+                .map(String::trim)
+                .filter(ele -> !Objects.equals(ele, ""))
+                .collect(Collectors.joining("\r\n"));
+
     }
 
     private static JButton addButton(JFrame frame, Font font, int x, int y, String title) {

@@ -22,14 +22,12 @@ public class Main {
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setLayout(null);
-        final JTextField jTextField1 = new JTextField("");
-        jTextField1.setSize(300,50);
-        jTextField1.setLocation(10,0);
+
         Map map = new HashMap();
         map.put(TextAttribute.SIZE,24);
         Font font = new Font(map);
-        jTextField1.setFont(font);
-        frame.add(jTextField1);
+
+        final JTextField jTextField1 = addTextField(frame, font);
 
         final JTextField jTextField2 = new JTextField("");
         jTextField2.setSize(300,50);
@@ -246,6 +244,15 @@ public class Main {
         frame.setSize(1560,960);
         frame.setVisible(true);
 //        kjjy();
+    }
+
+    private static JTextField addTextField(JFrame frame, Font font) {
+        final JTextField jTextField1 = new JTextField("");
+        jTextField1.setSize(300,50);
+        jTextField1.setLocation(10,0);
+        jTextField1.setFont(font);
+        frame.add(jTextField1);
+        return jTextField1;
     }
 
     {

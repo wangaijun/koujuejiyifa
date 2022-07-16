@@ -45,20 +45,12 @@ public class Main {
 
         final JTextField jTextField9 = addTextField(frame, font, 940,60);
 
-
         final JTextField jTextField10 = addTextField(frame, font, 1250,60);
 
-        JButton jButton = new JButton("确定");
-        jButton.setSize(300,50);
-        jButton.setLocation(10,120);
-        jButton.setFont(font);
-        frame.add(jButton);
 
-        JButton jButton2 = new JButton("置空");
-        jButton2.setSize(300,50);
-        jButton2.setLocation(320,120);
-        jButton2.setFont(font);
-        frame.add(jButton2);
+        JButton jButton = addButton(frame, font, 10,120, "确定");
+
+        JButton jButton2 = addButton(frame, font, 320,120, "置空");
 
         final JTextArea jTextArea = new JTextArea();
         jTextArea.setSize(1540,720);
@@ -209,6 +201,15 @@ public class Main {
         frame.setSize(1560,960);
         frame.setVisible(true);
 //        kjjy();
+    }
+
+    private static JButton addButton(JFrame frame, Font font, int x, int y, String title) {
+        JButton jButton = new JButton(title);
+        jButton.setSize(300,50);
+        jButton.setLocation(x,y);
+        jButton.setFont(font);
+        frame.add(jButton);
+        return jButton;
     }
 
     private static JTextField addTextField(JFrame frame, Font font, int x, int y) {

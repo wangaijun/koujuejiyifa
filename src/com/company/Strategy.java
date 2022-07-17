@@ -11,6 +11,10 @@ public class Strategy {
         String tmp = "";
         StringBuilder stringBuilder = new StringBuilder();
 
+        // 各取一位拼起来
+        // TODO: 使用递归简化
+
+
         for (int i = 0; i< strings[0].length(); i++){
             tmp = tmp + strings[0].charAt(i);
             for (int j = 0; j< strings[1].length(); j++) {
